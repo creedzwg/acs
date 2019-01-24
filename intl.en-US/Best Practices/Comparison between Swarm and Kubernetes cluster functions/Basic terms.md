@@ -8,13 +8,13 @@ This topic compares the basic terms that are used for both Swarm clusters and Ku
 
 In a Container Service Swarm cluster, applications can be viewed as projects. Each application can include multiple services. Each service is an instance that provides the specific function. Services can be horizontally expanded.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83094/154829367135233_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83094/154829457535233_en-US.png)
 
 **Container Service Kubernetes clusters**
 
 In a Container Service Kubernetes cluster, an application, also known as a deployment, is used to provide functions. A deployment contains pods and containers. A pod is the minimum resource unit that can be scheduled in Kubernetes and each pod can contain multiple containers. A pod can be viewed as an instance of the application to which the pod belongs. Multiple pods can be scheduled to different nodes. This means that pods can be horizontally expanded.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83094/154829367135234_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83094/154829457535234_en-US.png)
 
 **Note:** The preceding figure in which each pod has multiple containers is used to show the expansion capability of pods. However, we recommend that you set only one container for each pod.
 
@@ -28,7 +28,7 @@ Each service in a Container Service Swarm cluster is an instance that provides a
 
 The service term in Container Service Kubernetes clusters is an abstract concept. A service can expose the access method of its application \(or deployment\) outside the cluster.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83094/154829367135237_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83094/154829457535237_en-US.png)
 
 ## Application access {#section_yfw_5r2_ggb .section}
 
