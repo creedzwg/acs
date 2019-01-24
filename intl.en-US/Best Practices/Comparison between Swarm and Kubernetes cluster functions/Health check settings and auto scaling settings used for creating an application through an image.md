@@ -19,9 +19,9 @@ Health checks are implemented through labels.
 
 If you use an image to create an application, you can set health checks on the Container tab page. You can set a **Liveness** probe and a **Readiness** probe.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84654/154829387635542_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84654/154829460135542_en-US.png)
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84654/154829387635543_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84654/154829460135543_en-US.png)
 
 ## Set auto scaling {#section_krz_vsz_ggb .section}
 
@@ -33,5 +33,5 @@ You can set auto scaling according to CPU usage and memory usage.
 
 You can set auto scaling according to CPU usage and memory usage by enabling Horizontal Pod Autoscaling \(HPA\).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84654/154829387635544_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84654/154829460135544_en-US.png)
 
