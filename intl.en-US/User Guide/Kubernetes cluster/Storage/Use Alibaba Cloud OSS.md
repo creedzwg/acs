@@ -94,10 +94,10 @@ spec:
 **Create OSS data volumes in Container Service console**
 
 1.  Log on to the [Container Service console](https://partners-intl.console.aliyun.com/#/cs).
-2.  Click Kubernetes \>**Clusters \>** \> **Storage**in the left-side navigation pane.
+2.  In the left-side navigation pane under Kubernetes, choose **Clusters** \> **Storage**.
 3.  Select the cluster from the Clusters drop-down list and then click **Create** in the upper-right corner.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6938/15508194084683_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6938/15508197254683_en-US.png)
 
 4.  The Create Data Volume dialog box appears. Configure the data volume parameters.
 
@@ -109,7 +109,7 @@ spec:
     -   **Bucket ID**: Select the OSS bucket name you want to use. Click **Select Bucket**. Select the bucket in the displayed dialog box and click **Select**.
     -   **Access Domain Name**: If the bucket and Elastic Compute Service \(ECS\) instance are in different regions, select **Internet**. If the bucket and ECS instance are in the same region, select Intranet or VPC according to the cluster network type. Select **VPC** if the network type is Virtual Private Cloud \(VPC\) or select **Intranet** if the network type is classic network.
     -   **Tag**: Click Add Tag to add tags for this data volume.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6938/15508194084684_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6938/15508197254684_en-US.png)
 
 5.  Click **Create** after completing the configurations.
 
