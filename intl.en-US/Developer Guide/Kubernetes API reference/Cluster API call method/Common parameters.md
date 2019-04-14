@@ -6,7 +6,7 @@ Public request parameters are the request parameters that each interface must us
 
 |Parameter|Description|Options|
 |:--------|:----------|:------|
-|Authorization |The authentication information used to verify the validity of a request. Format: `AccessKeyId:Signature`.|Required|
+|Authorization|The authentication information used to verify the validity of a request. Format: `AccessKeyId:Signature`.|Required|
 |Content-Length|The content length of an HTTP request, which is defined in RFC 2616.|Required|
 |Content-Type|The content type of an HTTP request, which is defined in RFC 2616.|Required|
 |Content-MD5|The Base64-encoded results converted from 128-bit MD5 hash value of the HTTP message body. We recommend that you add this message to all requests to prevent requests from being tampered.|Required|
