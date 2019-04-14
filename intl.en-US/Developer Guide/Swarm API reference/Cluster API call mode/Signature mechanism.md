@@ -2,13 +2,13 @@
 
 ## Introduction {#section_ylc_pxd_xdb .section}
 
-The Access Key ID and Access Key Secret are officially issued to you by Alibaba Cloud \(you can apply for and manage them on the Alibaba Cloud official website\). The  Access Key ID is used to identify your identity. The Access Key Secret is the key used to encrypt the signature string and verify the signature string on the server side. You must keep the Access Key Secret confidential. Only you and Alibaba Cloud can know it.
+The Access Key ID and Access Key Secret are officially issued to you by Alibaba Cloud \(you can apply for and manage them on the Alibaba Cloud official website\). The Access Key ID is used to identify your identity. The Access Key Secret is the key used to encrypt the signature string and verify the signature string on the server side. You must keep the Access Key Secret confidential. Only you and Alibaba Cloud can know it.
 
-Container Service verifies each access request it receives. Therefore, all requests sent to Container Service must contain signature information. Container Service performs symmetric encryption by using the Access Key ID and  Access Key Secret to verify the identity of request senders.  If the calculated verification code is the same as the one provided, the request is considered as valid. Otherwise, Container Service rejects the request and returns the HTTP 403  error.
+Container Service verifies each access request it receives. Therefore, all requests sent to Container Service must contain signature information. Container Service performs symmetric encryption by using the Access Key ID and Access Key Secret to verify the identity of request senders. If the calculated verification code is the same as the one provided, the request is considered as valid. Otherwise, Container Service rejects the request and returns the HTTP 403 error.
 
 You can add the authorization header in the HTTP request to contain the signature information, indicating that the message has been authorized.
 
-Container Service requires to contain the signature in the HTTP header in the format of  `Authorization: acs [Access Key ID]:[Signature]`.
+Container Service requires to contain the signature in the HTTP header in the format of `Authorization: acs [Access Key ID]:[Signature]`.
 
 The `Signature` calculation method is as follows:
 
@@ -26,16 +26,16 @@ Signature = base64(hmac-sha1(VERB + "\n"
 -   `Accept` indicates the return type required by the client, which can be application/json or application/xml.
 -   `Content-MD5` indicates the MD5 value of the requested content.
 -   `Content-Type` indicates the type of the requested content.
--   `Date`  indicates the operation time, which cannot be null. Currently, only the GMT format is supported. If the difference between the request time and the CAS server time exceeds 15 minutes, CAS considers the request as invalid and returns error 400. For more information, see the 5th section.  For example, `Thu, 17 Mar 2012 18:49:58 GMT`.
--   `CanonicalizedHeaders`  indicates a combination of fields started with `x-acs-` in the HTTP request.
--   `CanonicalizedResource` indicates the uniform resource identifier \(URI\) of the resource in the HTTP request.   For example, `/clusters? name=my-clusters&resource=new`.
+-   `Date` indicates the operation time, which cannot be null. Currently, only the GMT format is supported. If the difference between the request time and the CAS server time exceeds 15 minutes, CAS considers the request as invalid and returns error 400. For more information, see the 5th section. For example, `Thu, 17 Mar 2012 18:49:58 GMT`.
+-   `CanonicalizedHeaders` indicates a combination of fields started with `x-acs-` in the HTTP request.
+-   `CanonicalizedResource` indicates the uniform resource identifier \(URI\) of the resource in the HTTP request. For example, `/clusters? name=my-clusters&resource=new`.
 
 **Note:** Conform to the following specifications for `CanonicalizedHeaders` \(headers started with `x-acs-`\) before signature verification:
 
-1.  Convert the names of all HTTP request headers started with `x-acs-`  to lowercase letters. For example, convert  `X-ACS-Meta-Name: TaoBao`  to `x-acs-meta-name: TaoBao`. The names of request headers are case-insensitive according to Alibaba Cloud specifications. However, we recommend that you use the lowercase letters.
-2.  If the value part of a public request header is too long, replace the  `\t`, `\n`, `\r`, and `\f` separators with spaces.
+1.  Convert the names of all HTTP request headers started with `x-acs-` to lowercase letters. For example, convert `X-ACS-Meta-Name: TaoBao` to `x-acs-meta-name: TaoBao`. The names of request headers are case-insensitive according to Alibaba Cloud specifications. However, we recommend that you use the lowercase letters.
+2.  If the value part of a public request header is too long, replace the `\t`, `\n`, `\r`, and `\f` separators with spaces.
 3.  Sort all HTTP request headers that are obtained from the preceding step and compliant with Alibaba Cloud specifications in the lexicographic ascending order.
-4.  Delete any space at either side of a separator between request header and content.  For example, convert `x-acs-meta-name: TaoBao,Alipay` to `x-acs-meta-name:TaoBao,Alipay`.
+4.  Delete any space at either side of a separator between request header and content. For example, convert `x-acs-meta-name: TaoBao,Alipay` to `x-acs-meta-name:TaoBao,Alipay`.
 5.  Separate all headers and contents with the `\n` separator to form the final `CanonicalizedHeaders`.
 
 **Note:** The format specification for `CanonicalizedResource`: `CanonicalizedResource` indicates the standard description of the resource you want to access. Sort sub-resources and query in the lexicographically ascending order and separate them by using the `&` separator to generate a sub-resource string \(all parameters after `?`\).
@@ -75,7 +75,7 @@ x-acs-signature-method: HMAC-SHA1
 Content-Type: application/json;charset=utf-8
 X-Acs-Region-Id: cn-beijing  
 Authorization: acs access_key_id:/ZmVlMDNkNDA1ZTQyMWViYWY1MTRhZGVjODgxMDM4YzRiMzEzNTg0ZA==
-
+{"password": "Just$test","instance_type": "ecs.m2.medium","name": "my-test-cluster-97082734","size": 1,"network_mode": "classic","data_disk_category": "cloud","data_disk_size": 10,"ecs_image_id": "m-253llee3l"}
 ```
 
 **Request construction process**
@@ -133,9 +133,9 @@ In the example, the length of CanonicalizedResource is 27.
 /clusters? param1=value1&param2=value2
 ```
 
-Calculate  `Signature`
+Calculate `Signature`
 
-Assemble `SignatureString`.  In the example, the length of the signature string is 307. An `\n`  line break is at the end of all lines  except the last line.
+Assemble `SignatureString`. In the example, the length of the signature string is 307. An `\n` line break is at the end of all lines except the last line.
 
 ```
 POST
@@ -181,6 +181,6 @@ x-acs-signature-method: HMAC-SHA1
 Content-Type: application/json;charset=utf-8
 X-Acs-Region-Id: cn-beijing  
 Authorization: acs access_key_id:/ZmVlMDNkNDA1ZTQyMWViYWY1MTRhZGVjODgxMDM4YzRiMzEzNTg0ZA==
-
+{"password": "Just$test","instance_type": "ecs.m2.medium","name": "my-test-cluster-97082734","size": 1,"network_mode": "classic","data_disk_category": "cloud","data_disk_size": 10,"ecs_image_id": "m-253llee3l"}
 ```
 
