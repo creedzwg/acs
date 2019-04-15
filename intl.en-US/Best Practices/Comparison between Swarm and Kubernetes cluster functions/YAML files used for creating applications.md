@@ -2,7 +2,7 @@
 
 This topic describes the relation between the YAML files used in a Swarm cluster and those used in Kubernetes cluster for creating applications.
 
-## Background information {#section_ubk_4zz_ggb .section}
+## Background {#section_ubk_4zz_ggb .section}
 
 The formats of the YAML files used to create applications in a Swarm cluster and a Kubernetes cluster are different.
 
@@ -10,7 +10,19 @@ The formats of the YAML files used to create applications in a Swarm cluster and
 
     To obtain Kompose, see [https://github.com/AliyunContainerService/kompose](https://github.com/AliyunContainerService/kompose).
 
+    You can download Kompose at one of the following URLs:
+
+    -   The Kompose download URL for the Mac operating system is [http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/swarm/kompose-darwin-amd64](http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/swarm/kompose-darwin-amd64)
+    -   The Kompose download URL for the Linux operating system is [http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/swarm/kompose-linux-amd64](http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/swarm/kompose-linux-amd64)
+    -   The Kompose download URL for the Windows operating system is [http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/swarm/kompose-windows-amd64.exe](http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/swarm/kompose-windows-amd64.exe)
     **Note:** Kompose does not support certain customized labels in Alibaba Cloud. The Alibaba Cloud Container Service Team is developing solutions so that Kompose can support all customized labels.
+
+    |Tag|Related link|
+    |---|------------|
+    |external|[External ](../../../../../reseller.en-US/User Guide/Service orchestrations/External .md#)|
+    |dns\_options|[dns\_options](../../../../../reseller.en-US/User Guide/Service orchestrations/dns_options.md#)|
+    |oom\_kill\_disable|[oom\_kill\_disable](../../../../../reseller.en-US/User Guide/Service orchestrations/oom_kill_disable.md#)|
+    |affinity:service|[Service deployment constraints \(affinity:service\)](../../../../../reseller.en-US/User Guide/Service orchestrations/Service deployment constraints (affinity:service).md#)|
 
 -   You can also manually modify a Swarm cluster YAML file to make it compatible with a Kubernetes cluster.
 
