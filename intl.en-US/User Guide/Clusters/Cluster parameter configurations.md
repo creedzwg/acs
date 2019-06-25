@@ -79,7 +79,7 @@ You can select to add the IP addresses of the created nodes to the RDS instance 
 
 ## Security Group {#section_sxq_smk_xdb .section}
 
-Container Service configures the default security group and only sets the inbound security group rules. You can configure the security group according to your business scenarios after the cluster is created successfully. For more information, see[Container Service security group rules](reseller.en-US/User Guide/Security groups/Container Service security group rules.md#)
+Container Service configures the default security group and only sets the inbound security group rules. You can configure the security group according to your business scenarios after the cluster is created successfully. For more information, see [Container Service security group rules](reseller.en-US/User Guide/Security groups/Container Service security group rules.md#)
 
 -   Ports 443 and 80 can be opened or closed as per your needs.
 -   We recommend that you retain the ICMP rules for communication between nodes and the convenience of troubleshooting. Some tools also depend on ICMP.
