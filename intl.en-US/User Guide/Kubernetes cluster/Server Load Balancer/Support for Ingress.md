@@ -6,7 +6,7 @@ In Kubernetes clusters, Ingress is a collection of rules that authorize inbound 
 
 To test the complex routing service, create an Nginx application in this example. You must create the Nginx deployment and multiple services in advance to observe the routing effect. Replace with your own service in the actual test.In the actual test enter your own service.
 
-```
+``` {#codeblock_dcz_wvc_h96}
 root@master # kubectl run nginx --image=registry.cn-hangzhou.aliyuncs.com/acs/netdia:latest
 
 root@master # kubectl expose deploy nginx --name=http-svc --port=80 --target-port=80
@@ -19,7 +19,7 @@ root@master # kubectl expose deploy nginx --name=http-svc3 --port=80 --target-po
 
 Create a simple Ingress service by using the following commands. All the accesses to the /svc path are routed to the Nginx service. `nginx.ingress.kubernetes.io/rewrite-target: /` redirects the path /svcto the path / that can be recognized by backend services.
 
-```
+``` {#codeblock_4no_vnz_znv}
 root@master # cat <<EOF | kubectl create -f -
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -47,7 +47,7 @@ Now visit `http://101.37.192.211/svc` to access the Nginx service.
 
 If you have multiple domain names providing different external services, you can generate the following configuration to implement a simple fanout effect based on domain names:
 
-```
+``` {#codeblock_1vx_pch_d11}
 root@master # cat <<EOF | kubectl create -f - 
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -86,7 +86,7 @@ Then, you can access the `http-svc1` service by using `http://foo.bar.com/foo`, 
 -   In a production environment, point the domain name to the preceding returned address `101.37.192.211`.
 -   In a testing environment, you can modify the `hosts` file to add a domain name mapping rule.
 
-    ```
+    ``` {#codeblock_g7c_l8c_m6o}
     101.37.192.211 foo.bar.com
     101.37.192.211 foo.example.com
     ```
@@ -98,7 +98,7 @@ It does not matter if you do not have the domain name address. Container Service
 
 Use the following configuration to expose two services with the default domain name.
 
-```
+``` {#codeblock_t44_kpl_p34}
 root@master # cat <<EOF | kubectl create -f - 
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -138,7 +138,7 @@ Management of multiple certificates is supported to provide security protection 
 
     **Note:** The domain name must be consistent with your Ingress configuration.
 
-    ```
+    ``` {#codeblock_76a_9vv_cbf}
     root@master # openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=foo.bar.com/O=foo.bar.com"
     ```
 
@@ -146,13 +146,13 @@ Management of multiple certificates is supported to provide security protection 
 
     Create a Kubernetes secret named foo.bar using the certificate and private key. The secret must be referenced when you create the Ingress.
 
-    ```
+    ``` {#codeblock_t4h_jm7_h1d}
     root@master # kubectl create secret tls foo.bar --key tls.key --cert tls.crt
     ```
 
 2.  Create a safe Ingress service.
 
-    ```
+    ``` {#codeblock_ki1_bs5_qpg}
     root@master # cat <<EOF | kubectl create -f - 
     apiVersion: extensions/v1beta1
     kind: Ingress
@@ -192,7 +192,7 @@ Management of multiple certificates is supported to provide security protection 
 
 1.  Save the following yml code to the `nginx-ingress.yml`file.
 
-    ```
+    ``` {#codeblock_c8u_vpj_hir}
     apiVersion: extensions/v1beta1
     kind: Ingress
     metadata:
@@ -207,10 +207,10 @@ Management of multiple certificates is supported to provide security protection 
               servicePort: 80
     ```
 
-2.  Log on to the [容器服务管理控制台](https://partners-intl.console.aliyun.com/#/cs). Under Kubernetes, click Clusters in the left-side navigation pane. Click **Dashboard**at the right of the cluster to enter the Kubernetes dashboard.
+2.  Log on to the [Container Service console](https://partners-intl.console.aliyun.com/#/cs). Under Kubernetes, click Clusters in the left-side navigation pane. Click **Dashboard**at the right of the cluster to enter the Kubernetes dashboard.
 3.  Click **CREATE** in the upper-right corner to create an application.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6932/15500736654662_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6932/15616156024662_en-US.png)
 
 4.  Click the **CREATE FROM FILE** tab. Select the `nginx-ingress.yml` file you saved.
 5.  Click **UPLOAD**.
@@ -221,7 +221,7 @@ Management of multiple certificates is supported to provide security protection 
 
     You can view the created Ingress resource and its access address `http://118.178.174.161/svc`.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6932/15500736654663_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6932/15616156024663_en-US.png)
 
 7.  Enter the address in the browser to access the created `http-svc` service.
 
