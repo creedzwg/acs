@@ -36,7 +36,7 @@ appone:
 
 After the service is successfully started, the following figure appears.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399595597_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401165597_en-US.png)
 
 **Enable session persistence**
 
@@ -73,7 +73,7 @@ appone:
 
 When the VIP address of the Server Load Balancer instance instead of the domain name is entered, the 503 error page is returned as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399595598_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401165598_en-US.png)
 
 To add messages to the 503 page, add the `/errors` folder to the VM where the container resides and add the `/errors/503.http` file with the following content:
 
@@ -129,7 +129,7 @@ appone:
 
 After entering the VIP address of the Server Load Balancer instance, the 503 page is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399595599_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401175599_en-US.png)
 
 ## Support extensive domain names {#section_fpf_v3z_xdb .section}
 
@@ -167,7 +167,7 @@ appone:
 
 Bind a host and enter the domain name `www.example.com`. The Nginx homepage is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399605600_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401175600_en-US.png)
 
 ## Configure default backend {#section_ppf_v3z_xdb .section}
 
@@ -207,7 +207,7 @@ appone:
 
 After entering the VIP address of the Server Load Balancer instance, the Nginx homepage is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399605601_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401175601_en-US.png)
 
 ## Select backend based on URL parameter values {#section_aqf_v3z_xdb .section}
 
@@ -254,11 +254,11 @@ apptwo:
 
 Bind a host and enter the link `http://www.example.com?backend=appone`. Then, the Nginx homepage for the appone service is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399605602_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401175602_en-US.png)
 
 Bind a host and enter the link `http://www.example.com?backend=apptwo`. Then, the hello world homepage for the apptwo service is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640399605603_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640401185603_en-US.png)
 
 ## Record access logs {#section_nqf_v3z_xdb .section}
 
