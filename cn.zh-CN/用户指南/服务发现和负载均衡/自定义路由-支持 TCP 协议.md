@@ -1,12 +1,12 @@
 # 自定义路由-支持 TCP 协议 {#concept_pws_ywz_xdb .concept}
 
-阿里云容器服务在使用的过程中，针对 TCP 负载均衡的场景，会遇到这样的问题：如果一个应用的客户端镜像和服务端镜像均部署在同一个节点（ECS）上面，由于受负载均衡的限制，该应用的客户端不能通过负载均衡访问本机的服务端。本文档以常用的基于 TCP 协议的 redis 为例，通过自定义路由[acs/proxy](intl.zh-CN/用户指南/服务发现和负载均衡/自定义路由-使用手册.md#section_it1_v2z_xdb) 来解决这一问题。
+阿里云容器服务在使用的过程中，针对 TCP 负载均衡的场景，会遇到这样的问题：如果一个应用的客户端镜像和服务端镜像均部署在同一个节点（ECS）上面，由于受负载均衡的限制，该应用的客户端不能通过负载均衡访问本机的服务端。本文档以常用的基于 TCP 协议的 redis 为例，通过自定义路由[acs/proxy](cn.zh-CN/用户指南/服务发现和负载均衡/自定义路由-使用手册.md#section_it1_v2z_xdb) 来解决这一问题。
 
 **Note:** 任何两个不同的服务均不能共享使用同一个负载均衡，否则会导致负载均衡后端机器被删除，服务不可用。
 
 ## 解法一：通过调度容器，避免客户端和服务端容器部署在同一个节点 {#section_udf_jxz_xdb .section}
 
-示例应用模板（使用了[lb](intl.zh-CN/用户指南/服务编排/lb.md#) 标签和 [swarm filter](https://docs.docker.com/swarm/scheduler/filter/) 功能）：
+示例应用模板（使用了[lb](cn.zh-CN/用户指南/服务编排/lb.md#) 标签和 [swarm filter](https://docs.docker.com/swarm/scheduler/filter/) 功能）：
 
 ```
 redis-master:
@@ -33,7 +33,7 @@ redis-client:
 
 ## 解法二：容器集群内部客户端使用 link 访问服务端，集群外部使用负载均衡 {#section_c2f_jxz_xdb .section}
 
-示例应用模板（使用了[lb](intl.zh-CN/用户指南/服务编排/lb.md#)标签）：
+示例应用模板（使用了[lb](cn.zh-CN/用户指南/服务编排/lb.md#)标签）：
 
 ```
 redis-master:
@@ -53,7 +53,7 @@ redis-client:
 
 ## 解法三：容器集群内部客户端使用自定义路由（基于 HAProxy）作为代理访问服务端，集群外部使用负载均衡 {#section_j2f_jxz_xdb .section}
 
-示例应用模板（使用了[lb](intl.zh-CN/用户指南/服务编排/lb.md#)标签和[自定义路由-简单示例](intl.zh-CN/用户指南/服务发现和负载均衡/自定义路由-简单示例.md#)）：
+示例应用模板（使用了[lb](cn.zh-CN/用户指南/服务编排/lb.md#)标签和[自定义路由-简单示例](cn.zh-CN/用户指南/服务发现和负载均衡/自定义路由-简单示例.md#)）：
 
 ```
 lb:
@@ -114,5 +114,5 @@ redis-client:
     tty: true
 ```
 
-该解决方案，做到了 redis 的主从架构，同时经过[服务间的负载均衡](intl.zh-CN/用户指南/服务发现和负载均衡/自定义路由-简单示例.md#section_wqf_v3z_xdb) 做负载均衡，做到了一定程度的高可用。
+该解决方案，做到了 redis 的主从架构，同时经过[服务间的负载均衡](cn.zh-CN/用户指南/服务发现和负载均衡/自定义路由-简单示例.md#section_wqf_v3z_xdb) 做负载均衡，做到了一定程度的高可用。
 
