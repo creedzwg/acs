@@ -10,7 +10,7 @@ The compose template is as follows:
 
 ``` {#codeblock_toa_j7p_n4o}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -36,13 +36,13 @@ appone:
 
 After the service is successfully started, the following figure appears.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403715597_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605415597_en-US.png)
 
 **Enable session persistence**
 
 ``` {#codeblock_ikb_gi5_qx6}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -73,7 +73,7 @@ appone:
 
 When the VIP address of the Server Load Balancer instance instead of the domain name is entered, the 503 error page is returned as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403715598_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605425598_en-US.png)
 
 To add messages to the 503 page, add the `/errors` folder to the VM where the container resides and add the `/errors/503.http` file with the following content:
 
@@ -84,13 +84,12 @@ Connection: close
 Content-Type: text/html;charset=UTF-8
 <html><body><h1>503 Service Unavailable</h1>
 <h3>No server is available to handle this request.</h3>
-If this page is returned, a problem occurs during the service access process. Follow these steps for troubleshooting:
 <li>If you are the visitor of this application, contact the application maintainer to solve the problem. </li>
 <li>If you are the application maintainer, view the following information. </li>
 <li>You are using the simple routing service. The request is sent from Server Load Balancer to the acsrouting application container then to your application container. Follow these steps for troubleshooting. </li>
 <li>Log on to the Container Service console. Click "Services" in the left-side navigation pane. Select the corresponding cluster on the "Service List" page. Click the name of the service exposed to the public network. View the "Access Endpoint" of the service, and check whether your access domain name is the same as the domain name configured in the corresponding service. </li>
-<li>Locate and troubleshoot the problem according to the Simple routing - service link troubleshooting. </li>
-<li>See Routing FAQs. </li>
+<li>Locate and troubleshoot the problem by following the instructions described in <a href="https://www.alibabacloud.com/help/faq-detail/42660.html">. </li>
+<li>View Routing FAQs <a href="https://www.alibabacloud.com/help/zh/faq-detail/42658.html">. </li>
 <li>If the problem persists, open a ticket and contact the technical staff for help. We will serve you faithfully.</li>
 </body></html>
 ```
@@ -99,7 +98,7 @@ You can modify the error page as per your needs. The compose template is modifie
 
 ``` {#codeblock_jcp_n4v_13v}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -129,7 +128,7 @@ appone:
 
 After entering the VIP address of the Server Load Balancer instance, the 503 page is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403715599_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605425599_en-US.png)
 
 ## Support extensive domain names {#section_fpf_v3z_xdb .section}
 
@@ -137,7 +136,7 @@ Modify the configurations as follows to enable the backend of Nginx to support e
 
 ``` {#codeblock_xmr_pq2_btp}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -167,7 +166,7 @@ appone:
 
 Bind a host and enter the domain name `www.example.com`. The Nginx homepage is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403725600_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605425600_en-US.png)
 
 ## Configure default backend {#section_ppf_v3z_xdb .section}
 
@@ -175,7 +174,7 @@ Remove the URL configuration and modify the configurations as follows to enable 
 
 ``` {#codeblock_i1x_swa_iqr}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -207,7 +206,7 @@ appone:
 
 After entering the VIP address of the Server Load Balancer instance, the Nginx homepage is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403725601_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605435601_en-US.png)
 
 ## Select backend based on URL parameter values {#section_aqf_v3z_xdb .section}
 
@@ -217,7 +216,7 @@ The following example shows how to access the appone service, that is, the Nginx
 
 ``` {#codeblock_c1p_xlt_7in}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -254,17 +253,17 @@ apptwo:
 
 Bind a host and enter the link `http://www.example.com?backend=appone`. Then, the Nginx homepage for the appone service is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403725602_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605435602_en-US.png)
 
 Bind a host and enter the link `http://www.example.com?backend=apptwo`. Then, the hello world homepage for the apptwo service is displayed as follows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15640403725603_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7112/15645605435603_en-US.png)
 
 ## Record access logs {#section_nqf_v3z_xdb .section}
 
 ``` {#codeblock_ojl_vog_krc}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     ports:
             - '80:80'
     restart: always
@@ -302,7 +301,7 @@ The following template creates a Server Load Balancer service `lb` and an applic
 
 ``` {#codeblock_xw6_2an_hau}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image: registry.aliyuncs.com/acs/proxy:0.6
     Hostname: proxy # Specify the domain name of the service as proxy, which is resolved to all containers with this image deployed.
     ports:
             - '80:80'
@@ -361,28 +360,28 @@ appone.example.com.     600 IN A 172.18.1.5
 
 ## Configure monitoring page {#section_nrf_v3z_xdb .section}
 
-``` {#codeblock_8xn_tqs_56m}
+``` {#codeblock_xv6_0zw_82q}
 lb:
-    image: registry.aliyuncs.com/acs/proxy:0.5
+    image:  registry.aliyuncs.com/acs/proxy:0.6
     ports:
-            - '80:80'
-            -127. 0.5.1: 1935: 1935 '# The port that monitoring page exposes to the public network. Configure the port with due care because of the potential security risk.
-    restart: always
+            -  '80:80'
+            -  '127.0.0.1:1935:1935' # The port that monitoring page exposes to the public network. Configure the port with due care because of the potential security risk.
+    restart:  always
     labels:
-        aliyun.custom_addon: "proxy"
-        aliyun.global: "true"
+        aliyun.custom_addon:  "proxy"
+        aliyun.global:  "true"
         aliyun.lb.port_80: tcp://proxy_test:80
     environment:
-        ADDITIONAL_SERVICES: "*"
+        ADDITIONAL_SERVICES:  "*"
         STATS_AUTH: "admin:admin" # The logon account and password used for monitoring, which are customizable.
         STATS_PORT: "1935" # The port used for monitoring, which is customizable.
 appone:
     expose: 
-        - 80/tcp 
-    image: 'nginx:latest'
+        -  80/tcp 
+    image:  'nginx:latest'
     labels:
-        aliyun.proxy.VIRTUAL_HOST: "http://appone.example.com"
-    restart: always
+        aliyun.proxy.VIRTUAL_HOST:  "http://appone.example.com"
+    restart:  always
 ```
 
 Log on to each machine where the custom routing image resides \(each machine can receive the request, no matter the application container is on which machine\) and request the `acs/proxy` health check page.
