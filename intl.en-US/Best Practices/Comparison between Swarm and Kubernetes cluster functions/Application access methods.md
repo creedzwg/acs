@@ -48,7 +48,7 @@ spec:
 
 Create an application in a Kubernetes cluster and verify the application availability is available before migrating a Swarm cluster application to the Kubernetes cluster.
 
-![](images/36481_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/89985/156584810836481_en-US.png)
 
 **Migration method**
 
@@ -80,7 +80,7 @@ In a Swarm cluster, you can bind an application domain name to the default SLB o
 
 You can use the same migration method as that used for the scenario in which the domain name is bound to the default SLB of a Swarm cluster. That is, create an application in a Kubernetes cluster and then verify if the application is available before migrating.
 
-![](images/36492_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/89985/156584810836492_en-US.png)
 
 **A Swarm cluster application is accessed through <HostIP\>:<port\>**
 
