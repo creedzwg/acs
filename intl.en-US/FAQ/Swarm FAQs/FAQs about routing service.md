@@ -2,15 +2,15 @@
 
 **Q: How to deploy an accessible Web container in Container Service in a simple and fast way?**
 
-**A:** See [../../../../dita-oss-bucket/SP\_8/DNCS011811810/EN-US\_TP\_6868.md\#](../../../../intl.en-US/Quick Start/Swarm cluster/Create an Nginx webserver from an image.md#) and [../../../../dita-oss-bucket/SP\_8/DNCS011811810/EN-US\_TP\_6869.md\#](../../../../intl.en-US/Quick Start/Swarm cluster/Create WordPress with an orchestration template.md#) for how to deploy an application in a simple and fast way.
+**A:** See [Create an Nginx webserver from an image](../../../../reseller.en-US/Quick Start/Create an Nginx webserver from an image.md#) and [Create WordPress with an orchestration template](../../../../reseller.en-US/Quick Start/Create WordPress with an orchestration template.md#) for how to deploy an application in a simple and fast way.
 
 **Q: How to use the routing service?**
 
-**A:** See [Simple routing - supports HTTP and HTTPS](../../../../intl.en-US/User Guide/Swarm cluster/Service discovery and load balancing/Simple routing - supports HTTP and HTTPS.md#).
+**A：** See [Simple routing - supports HTTP and HTTPS](../../../../reseller.en-US/User Guide/Service discovery and load balancing/Simple routing - supports HTTP and HTTPS.md#).
 
 **Q: How to use the routing label?**
 
-**A:** See the service orchestration document [../../../../dita-oss-bucket/SP\_8/DNCS011878073/EN-US\_TP\_7026.md\#](../../../../intl.en-US/User Guide/Swarm cluster/Service orchestrations/Label description.md#).
+**A:** See the service orchestration document [Label description](../../../../reseller.en-US/User Guide/Service orchestrations/Label description.md#).
 
 **Q: How to access the contents of a deployed Web container?**
 
@@ -18,17 +18,17 @@
 
 **Q: For high availability purpose, only one access endpoint is provided for multiple containers with the same functions. How is this implemented in Container Service?**
 
-**A:** As shown in the following figure, a routing service is provided, which can be configured by  **Service ** \> **Update** \> **Web Routing.** By default, the routing service deploys a routing container on each node in the cluster \(the routing container is displayed in the container list after the cluster is created and belongs to the acsrouting application\). A Server Load Balancer instance is created by default after a cluster is created. All access requests go through the frontend port 80 of the cluster Server Load Balancer \> the node 9080 port \> the port 80 of the routing container. The underlying implementation of the routing container is an HAProxy Server Load Balancer software, which is similar to Nginx, and provides the Server Load Balancer function. The routing container forwards the access requests to different container backends based on the domain names specified by the “HOST” header in HTTP \(containers in the same cluster are interworking\). During routing configuration, pay attention to the differences and relations among the Server Load Balancer ports, the node virtual machine \(VM\) ports, and the container ports.
+**A:** As shown in the following figure, a routing service is provided, which can be configured by **Service** \> **Update** \> **Web Routing.** By default, the routing service deploys a routing container on each node in the cluster \(the routing container is displayed in the container list after the cluster is created and belongs to the acsrouting application\). A Server Load Balancer instance is created by default after a cluster is created. All access requests go through the frontend port 80 of the cluster Server Load Balancer \> the node 9080 port \> the port 80 of the routing container. The underlying implementation of the routing container is an HAProxy Server Load Balancer software, which is similar to Nginx, and provides the Server Load Balancer function. The routing container forwards the access requests to different container backends based on the domain names specified by the “HOST” header in HTTP \(containers in the same cluster are interworking\). During routing configuration, pay attention to the differences and relations among the Server Load Balancer ports, the node virtual machine \(VM\) ports, and the container ports.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7374/15344071562442_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/7374/15681842922442_en-US.png)
 
 **Q: How to add a domain name to a service exposed to the public network and enable the service to support HTTP?**
 
-**A:** See [Simple routing - configure domain names](../../../../intl.en-US/User Guide/Swarm cluster/Service discovery and load balancing/Simple routing - Configure domain names.md#).
+**A:** See [Simple routing - configure domain names](../../../../reseller.en-US/User Guide/Service discovery and load balancing/Simple routing - Configure domain names.md#).
 
 **Q: How to change the protocol from HTTP to HTTPS?**
 
-**A:** See [Simple routing - change HTTP to HTTPS](../../../../intl.en-US/User Guide/Swarm cluster/Service discovery and load balancing/Simple routing - Change HTTP to HTTPS.md#).
+**A:** See [Simple routing - change HTTP to HTTPS](../../../../reseller.en-US/User Guide/Service discovery and load balancing/Simple routing - Change HTTP to HTTPS.md#).
 
 **Q: How to redirect an HTTP request to an HTTPS request?**
 
@@ -44,7 +44,7 @@
 
 **Q: Do clusters support binding or unbinding intranet Server Load Balancer instances?**
 
-**A:** The cluster can bind at most one Server Load Balancer instance and the Server Load Balancer instance can be unbound from the cluster. For more information, see [../../../../dita-oss-bucket/SP\_8/DNCS011878073/EN-US\_TP\_6996.md\#](../../../../intl.en-US/User Guide/Swarm cluster/Clusters/Bind and unbind a Server Load Balancer instance.md#).
+**A:** The cluster can bind at most one Server Load Balancer instance and the Server Load Balancer instance can be unbound from the cluster. For more information, see [Bind and unbind a Server Load Balancer instance](../../../../reseller.en-US/User Guide/Clusters/Bind and unbind a Server Load Balancer instance.md#).
 
 **Q: Do clusters support binding multiple cluster-level Server Load Balancer instances?**
 
@@ -56,11 +56,11 @@
 
 **Q: How are service discovery and Server Load Balancer between containers in the same cluster implemented?**
 
-**A:** The routing service proxy is used for the forwarding and discovery. For more information, see [Routing and Server Load Balancer between services in a cluster](../../../../intl.en-US/User Guide/Swarm cluster/Service discovery and load balancing/Routing and Server Load Balancer between services in a cluster.md#).
+**A:** The routing service proxy is used for the forwarding and discovery. See [Routing and Server Load Balancer between services in a cluster](../../../../reseller.en-US/User Guide/Service discovery and load balancing/Routing and Server Load Balancer between services in a cluster.md#).
 
 **Q: How to troubleshoot problems about routing service access links?**
 
-**A:** See [EN-US\_TP\_7376.md\#](intl.en-US/FAQ/Swarm FAQs/How to troubleshoot access link issues?.md#).
+**A:** See [How to troubleshoot access link issues?](reseller.en-US/FAQ/Swarm FAQs/How to troubleshoot access link issues?.md#).
 
 **Q: The Web routing rule can be set by using the `aliyun.routing.port_$container_port` in the orchestration template or by updating the service configurations. What is the difference between these two methods?**
 
@@ -68,13 +68,13 @@
 
 **Q: What if the default routing service does not meet corner cases?**
 
-**A:** A custom proxy image \([registry.aliyuncs.com/acs/proxy](../../../../intl.en-US/User Guide/Swarm cluster/Service discovery and load balancing/Custom routing - User guide.md#)\) can be a good solution. The image is based on HAProxy and supports parameter configurations that define HAProxy. This image also supports the dynamic service discovery, that is, the service is routed to a healthy container based on the service health status.
+**A：** A custom proxy image [registry.aliyuncs.com/acs/proxy](../../../../reseller.en-US/User Guide/Service discovery and load balancing/Custom routing - User guide.md#) can be a good solution. The image is based on HAProxy and supports parameter configurations that define HAProxy. This image also supports the dynamic service discovery, that is, the service is routed to a healthy container based on the service health status.
 
 **Q: How to obtain the real IP address of the client after using the simple routing?**
 
 **A:** For all the requests that use simple routing, Container Service adds x-forwarded-for information in the request headers.
 
-```
+``` {#codeblock_8u1_q8c_x8a}
 x-forwarded-for: <Client IP address>
 x-forwarded-for: <Proxy server IP>
 ```
